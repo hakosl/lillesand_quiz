@@ -1,7 +1,27 @@
 //putter inn spørsmål i en array slik at jeg kan bruke de senere.
-var question1 = { spørsmål: "hvor mange innbyggere er det i Lillesand?", alternativer: ["5 000", "10 000", "50 000", "4 000"], riktigAlternativ: 1};
-var question2 = { spørsmål: "Er Lillesand en populær sommerby?", alternativer: ["Ja", "Nei"], riktigAlternativ: 0};
-var questions = [question1, question2]
+var question1 = { spørsmål: "Hvor mange innbyggere er det i Lillesand?", 
+				  alternativer: ["5 000", "10 000", "50 000", "4 000"], 
+				  riktigAlternativ: 1};
+
+var question2 = { spørsmål: "Er Lillesand en populær sommerby?", 
+				  alternativer: ["Ja", "Nei"], 
+				  riktigAlternativ: 0};
+
+var question3 = { spørsmål: "Hvor i Norge er dette bildet i fra?", 
+				  alternativer: ["Homborsund", "Høvåg", "Kristiansand", "Lillesand"], 
+				  riktigAlternativ: 3, 
+				  media: "media\\lillesand.jpg"};
+
+var question4 = { spørsmål: "Hvilken sang er dette?",
+				  alternativer: ["Sandstorm", "Darudestorm", "Darude", "Rick roll"],
+				  riktigAlternativ: 0,
+				  media: "media\\sandstorm.mp3"};
+
+var question5 = { spørsmål: "Hvilken stilling har denne mannen?", 
+                  alternativer: ["Vaktmester", "Redaktør", "Project manager", "Oppfinner"],
+                  riktigAlternativ: 2,
+                  media: "media\\indianguytalking.mp4"}
+var questions = [question1, question2, question3, question4, question5];
 
 function initialiserVariabler(){
 	//forskjellige variabler
@@ -28,8 +48,16 @@ $( document ).ready(function() {
 });
 
 function makeQuestion(question){
-	console.log(question);
 	$('#container').prepend('<ol type="a" id="spørsmål"></ol>');
+
+	if ( /.jpg/i.test(question['media'])){
+		$('#container').prepend('<img src=' + question['media'] + '>');
+	}else if( /.mp3/i.test(question['media'])){
+		$('#container').prepend('<audio controls><source src=' + question['media'] + ' type="audio/ogg"></audio>');
+	}else if( /.mp4/i.test(question['media'])){
+		$('#container').prepend('<video width="320" height="240" controls><source src=' + 
+			                   question['media'] + ' type="video/mp4"></video>');
+	}
 	$('#container').prepend("<h2>" + question["spørsmål"] + "</h2>");
 	for(i=0; i < question["alternativer"].length; i++){
 		$('#spørsmål').append("<li class='btn'><a onclick='svar(" + i + ", "+ 
@@ -65,7 +93,7 @@ function riktigEllerGalt(valgt, riktigSvar){
 		galeSvar++;
 		dineSvar += valgt;
 	};
-}
+};
 
 function resultater(){
 	$('#container').prepend('<P>Du hadde ' + riktigeSvar + ' riktige av ' + questions.length + ' mulige</p>')
@@ -107,4 +135,9 @@ function startPåNytt(){
 	fjernSpørsmål();
 	console.log(currentQuestionIndex)
 	makeQuestion(questions[currentQuestionIndex]);
+}
+
+function typeFil(filting){
+	console.log(filting.substring(-4,-1));
+	return (filting.substring(-4, -1));
 }

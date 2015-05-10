@@ -29,10 +29,7 @@ h1{
 	color: white;
 	margin-left: 33%;
 }
-#container{
-
-	margin-left: auto;
-	margin-right: auto;
+#container{	
 }
 #container > ol {
 	padding-left: 30%;
@@ -57,7 +54,7 @@ p, table {
   padding: 10px 20px 10px 20px;
   text-decoration: none;
   margin-bottom: 20px;
-  width: 8%;
+  width: 10%;
 }
 
 .btn:hover {
@@ -74,4 +71,9 @@ p, table {
 }
 a{
 	text-decoration: none;
+	color: white;
+}
+img, audio, video{
+	margin-right: 20%;
+	float: right;
 }
