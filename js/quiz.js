@@ -104,7 +104,7 @@ function resultater(){
 
 function resultatTabell(){
 	$('#container').prepend('<table></table>');
-	$('table').append('<tr><td>Spørsmål:<td>Fasit:</td><td>Ditt svar:</td><td>Riktig?</td></tr>');
+	$('table').append('<tr><td>Spørsmål:<td>Fasit:</td><td>Ditt svar:</td><td>Riktig?</td></tr><tr>');
 	for(i = 0; i < fasit.length; i++){
 		$('table').append('<tr><td>' + questions[i]['spørsmål'] + '<td>' + 
 						  questions[i]['alternativer'][fasit[i]] + '</td><td>' + 
