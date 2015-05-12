@@ -10,6 +10,7 @@ h2{
 	color: white;
 	padding-bottom: 5px;
 	text-shadow: 1px 1px 3px #666666;
+	box-shadow: 2px 5px 10px #717171;
 }
 body{
 	margin: 0;
@@ -29,9 +30,9 @@ h1{
     line-height: normal;  
 	color: white;
 	margin-left: 33%;
+	text-shadow: 3px 3px 2px #000000;
 }
-#container{	
-}
+
 #container > ol {
 	padding-left: 30%;
 }
@@ -56,6 +57,7 @@ p, table {
   text-decoration: none;
   margin-bottom: 20px;
   width: 10%;
+  box-shadow: 2px 5px 10px #807F7F;
 }
 
 .btn:hover {

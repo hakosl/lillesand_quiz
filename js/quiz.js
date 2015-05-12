@@ -60,9 +60,10 @@ function makeQuestion(question){
 	}
 	$('#container').prepend("<h2>" + question["spørsmål"] + "</h2>");
 	for(i=0; i < question["alternativer"].length; i++){
-		$('#spørsmål').append("<li class='btn'><a onclick='svar(" + i + ", "+ 
-							  question['riktigAlternativ']+ ")'href='#' >" + 
-							  question["alternativer"][i] + "</a></li>");
+		$('#spørsmål').append("<a onclick='svar(" + i + ", "+ 
+							  question['riktigAlternativ']+ 
+							  ")'href='#' ><li class='btn'>" + 
+							  question["alternativer"][i] + "</li></a>");
 	};
 };
 
