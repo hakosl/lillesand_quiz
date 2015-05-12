@@ -98,8 +98,11 @@ function riktigEllerGalt(valgt, riktigSvar){
 function resultater(){
 	$('#container').prepend('<P>Du hadde ' + riktigeSvar + ' riktige av ' + questions.length + ' mulige</p>')
 	resultatTabell();
-	$('#container').prepend('<h2>Gratulerer, du har fulført quizen.</h2');
-	
+	if (riktigeSvar == questions.length){
+		$('#container').prepend('<h2>Gratulerer, du hadde alle svar riktige, bra jobbet!.</h2');
+	}else{
+		$('#container').prepend('<h2>Gratulerer, du har fulført quizen.</h2');
+	};
 };
 
 function resultatTabell(){
